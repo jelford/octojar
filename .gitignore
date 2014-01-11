@@ -1,8 +1,10 @@
 # vim #
 *~
+*.swp
 
 # gradle #
 .gradle
+build
 
 # Java files #
 *.class
@@ -11,3 +13,8 @@
 *.jar
 *.war
 *.ear
+
+# Eclipse #
+.classpath
+.project
+.settings
