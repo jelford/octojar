@@ -1,14 +1,12 @@
 package com.jameselford.octojar.classloaders;
 
-import java.net.URL;
-import java.net.URLClassLoader;
 
-public class UrlFirstClassLoader extends ClassLoader {
+public class ChildFirstClassLoader extends ClassLoader {
 
-    private final URLClassLoader pfocl;
+    private final ClassLoader childClassLoader;
 
-    public UrlFirstClassLoader(final URL[] urls) {
-        pfocl = new URLClassLoader(urls);
+    public ChildFirstClassLoader(final ClassLoader childClassLoader) {
+        this.childClassLoader = childClassLoader;
     }
 
     @Override
@@ -16,7 +14,7 @@ public class UrlFirstClassLoader extends ClassLoader {
             throws ClassNotFoundException {
 
         try {
-            return pfocl.loadClass(name);
+            return childClassLoader.loadClass(name);
         } catch (ClassNotFoundException e) {
             return super.loadClass(name, resolve);
         }

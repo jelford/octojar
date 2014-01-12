@@ -57,6 +57,7 @@ public class DynamicUtilsTest {
     @Test
     public void canUseNewlyCastMethods() {
         Concatable castObject = dynamicallyImplement(Concatable.class, "hello");
+
         String result = castObject.concat(" world");
 
         assertThat(result, CoreMatchers.is(CoreMatchers.equalTo("hello world")));
