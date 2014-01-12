@@ -82,7 +82,7 @@ public class ChildFirstClassLoaderTest {
     }
 
     private byte[] bytesFromClass(final Class<?> clazz) throws IOException {
-        try (InputStream is = OneMethodInterface.class.getClassLoader().getResourceAsStream(clazz.getName().replace(".", "/") + ".class")) {
+        try (InputStream is = clazz.getClassLoader().getResourceAsStream(clazz.getName().replace(".", "/") + ".class")) {
             return ByteStreams.toByteArray(is);
 
         }
