@@ -1,12 +1,31 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'maven'
+
+sourceCompatibility = '1.8'
+version = 0.1
+group = 'com.jameselford.octojar'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile group: 'com.google.guava', name: 'guava', version: '15.+'
+    compile group: 'com.google.guava', name: 'guava', version: '16.+'
     testCompile group: 'junit', name: 'junit', version: '4.+'
     testCompile group: 'org.mockito', name: 'mockito-core', version: '1.9.+'
 }
+
+idea {
+    module {
+
+        jdkName = '1.8'
+
+        downloadJavadoc = true
+
+        downloadSources = true
+
+    }
+}
+
